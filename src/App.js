@@ -1,27 +1,26 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text} from 'react-native';
-import {Provider} from 'react-redux';
+import {SafeAreaView, ScrollView, View} from 'react-native';
+import {Provider, useSelector} from 'react-redux';
 import {Provider as PaperProvider} from 'react-native-paper';
 
 import store from './redux/store';
 
 import Header from './components/Header';
+import TodoList from './components/TodoList';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <PaperProvider>
-        <SafeAreaView style={{backgroundColor: '#EFEFEF', flex: 1}}>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={{
-              marginVertical: 48,
-              marginHorizontal: 24,
-            }}>
-            <Header />
-          </ScrollView>
-        </SafeAreaView>
-      </PaperProvider>
+      <View
+        style={{
+          paddingVertical: 100,
+          paddingHorizontal: 30,
+          backgroundColor: '#EFEFEF',
+          flex: 1,
+        }}>
+        <Header />
+        <TodoList />
+      </View>
     </Provider>
   );
 };
