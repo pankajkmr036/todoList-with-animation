@@ -19,6 +19,7 @@ const Header = () => {
       style={{
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: 20,
       }}>
       <View style={{flex: 1}}>
         <Text style={{fontSize: 26, fontWeight: '600'}}>Hello RichPanel</Text>

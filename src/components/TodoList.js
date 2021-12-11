@@ -5,7 +5,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Modal from 'react-native-modal';
 import {useSelector, useDispatch} from 'react-redux';
 
-import ListItem from './ListItem';
+import DragableList from './DragableList';
+
 import {addTodo} from '../redux/actions/todoActions';
 
 const TodoList = () => {
@@ -31,30 +32,7 @@ const TodoList = () => {
 
   return (
     <>
-      <View style={{marginVertical: 40}}>
-        {todoList.map(x => (
-          <ListItem key={x.id} item={x} />
-        ))}
-
-        <TouchableOpacity
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: -800,
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 9999,
-          }}>
-          <IconButton
-            icon="plus-circle"
-            size={80}
-            color="blue"
-            onPress={toggleModal}
-          />
-        </TouchableOpacity>
-      </View>
+      <DragableList data={todoList} toggleModal={toggleModal} />
 
       <Modal
         isVisible={isModalVisible}

@@ -1,6 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+const {width} = Dimensions.get('window');
 
 const ListItem = props => {
   const {text, completed, due} = props.item;
@@ -16,6 +18,7 @@ const ListItem = props => {
         backgroundColor: 'white',
         borderRadius: 4,
         marginVertical: 8,
+        width: width - 60,
       }}>
       {completed && (
         <View
