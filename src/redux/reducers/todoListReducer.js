@@ -1,4 +1,4 @@
-import {ADD_TODO} from '../constants/todoConstants';
+import {ADD_TODO, DELETE_TODO} from '../constants/todoConstants';
 
 function nextTodoId(todos) {
   const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1);
@@ -14,6 +14,22 @@ const initialState = [
     due: '12 Aug 2021',
   },
   {id: 2, text: 'Party at Jason house', completed: false, due: '14 Aug 2021'},
+  // {id: 3, text: 'Complete 10 Pushups', completed: true, due: '10 Aug 2021'},
+  // {
+  //   id: 4,
+  //   text: 'Interview schedule for mike',
+  //   completed: false,
+  //   due: '12 Aug 2021',
+  // },
+  // {id: 5, text: 'Party at Jason house', completed: false, due: '14 Aug 2021'},
+  // {id: 6, text: 'Complete 10 Pushups', completed: true, due: '10 Aug 2021'},
+  // {
+  //   id: 7,
+  //   text: 'Interview schedule for mike',
+  //   completed: false,
+  //   due: '12 Aug 2021',
+  // },
+  // {id: 8, text: 'Party at Jason house', completed: false, due: '14 Aug 2021'},
 ];
 
 export default function todoListReducer(state = initialState, action) {
@@ -28,6 +44,9 @@ export default function todoListReducer(state = initialState, action) {
           completed: false,
         },
       ];
+
+    case DELETE_TODO:
+      return [...state.filter(x => x.id !== action.payload.id)];
     default:
       return state;
   }
