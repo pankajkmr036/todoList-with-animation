@@ -22,8 +22,16 @@ const Header = () => {
         flex: 1,
       }}>
       <View style={{flex: 1}}>
-        <Text style={{fontSize: 26}}>Hello RichPanel</Text>
-        <Text style={{fontSize: 18, color: 'grey', marginTop: 8}}>{text}</Text>
+        <Text style={{fontSize: 26, fontWeight: '600'}}>Hello RichPanel</Text>
+        <Text
+          style={{
+            fontSize: 18,
+            color: 'grey',
+            marginTop: 8,
+            fontWeight: '500',
+          }}>
+          {text}
+        </Text>
       </View>
 
       <Avatar size={60} imageSource={imageSrc} />
