@@ -5,13 +5,20 @@ import {Provider as PaperProvider} from 'react-native-paper';
 
 import store from './redux/store';
 
+import Header from './components/Header';
+
 const App = () => {
   return (
     <Provider store={store}>
       <PaperProvider>
-        <SafeAreaView>
-          <ScrollView contentInsetAdjustmentBehavior="automatic">
-            <Text>TODO LIST APP</Text>
+        <SafeAreaView style={{backgroundColor: '#EFEFEF', flex: 1}}>
+          <ScrollView
+            contentInsetAdjustmentBehavior="automatic"
+            style={{
+              marginVertical: 48,
+              marginHorizontal: 24,
+            }}>
+            <Header />
           </ScrollView>
         </SafeAreaView>
       </PaperProvider>
