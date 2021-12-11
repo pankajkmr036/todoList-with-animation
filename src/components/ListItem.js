@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 import IconMa from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const ListItem = props => {
-  const {text, completed, due} = props;
+  const {text, completed, due} = props.item;
 
   if (!text) {
     return null;
@@ -13,11 +13,9 @@ const ListItem = props => {
     <View
       style={{
         flexDirection: 'row',
-        flex: 1,
         backgroundColor: 'white',
         borderRadius: 4,
         marginVertical: 8,
-        paddingVertical: 8,
       }}>
       {completed && (
         <View
@@ -31,7 +29,7 @@ const ListItem = props => {
         </View>
       )}
 
-      <View style={{flex: 1, padding: 16}}>
+      <View style={{padding: 16, flex: 1}}>
         <Text style={{fontSize: 18, fontWeight: '600'}}>{text}</Text>
         <Text
           style={{
