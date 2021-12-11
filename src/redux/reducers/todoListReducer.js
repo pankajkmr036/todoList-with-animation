@@ -1,3 +1,10 @@
+import {ADD_TODO} from '../constants/todoConstants';
+
+function nextTodoId(todos) {
+  const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1);
+  return maxId + 1;
+}
+
 const initialState = [
   {id: 0, text: 'Complete 10 Pushups', completed: true, due: '10 Aug 2021'},
   {
@@ -11,6 +18,16 @@ const initialState = [
 
 export default function todoListReducer(state = initialState, action) {
   switch (action.type) {
+    case ADD_TODO:
+      return [
+        ...state,
+        {
+          id: nextTodoId(state),
+          text: action.payload.text,
+          due: action.payload.due,
+          completed: false,
+        },
+      ];
     default:
       return state;
   }
