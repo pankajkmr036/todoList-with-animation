@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import IconMa from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const ListItem = props => {
   const {text, completed, due} = props.item;
@@ -25,7 +25,7 @@ const ListItem = props => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <IconMa name="checkbox-marked-circle" size={30} color={'white'} />
+          <Icon name="checkbox-marked-circle" size={30} color={'white'} />
         </View>
       )}
 
@@ -48,7 +48,7 @@ const ListItem = props => {
             marginTop: 20,
             marginHorizontal: 16,
           }}>
-          <IconMa name="alarm" size={24} />
+          <Icon name="alarm" size={24} />
         </View>
       )}
     </View>
